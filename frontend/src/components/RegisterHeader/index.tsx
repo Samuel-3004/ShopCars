@@ -3,9 +3,8 @@ import { Menu } from "@mui/material";
 import { useMediaQuery } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { DivHeader, MobileNav, ButtonHeader, Nav } from "./style";
+import { DivHeader, MobileNav, ButtonHeader, Nav, Logo } from "./style";
 import { Link, useNavigate } from "react-router-dom";
-import { Logo } from "../Header/style";
 import { ButtonDarkMode } from "../ButtonDarkMode";
 
 const RegisterHeader = () => {

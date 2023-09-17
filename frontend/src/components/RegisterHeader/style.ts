@@ -30,6 +30,29 @@ export const Nav = styled.nav`
   gap: 1rem;
 `;
 
+export const Logo = styled.div<{ dark: boolean }>`
+  display: flex;
+
+  position: relative;
+
+  > h2 {
+    font-size: 2.1rem;
+    font-family: "Anton", sans-serif;
+    color: var(--primary-color);
+  }
+
+  > span {
+    position: absolute;
+    top: 19px;
+    right: -50px;
+
+    color: ${(props) =>
+      props.dark ? "var(--white)" : "var(--secondary-color)"};
+    font-size: 1.9rem;
+    font-family: "Galada", cursive;
+  }
+`;
+
 export const ButtonHeader = styled.button<{ dark: boolean }>`
   background: none;
   border-radius: 6px;
