@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+  model User {
+    id String @id
+    name String
+    email String @unique
+    password String
+    seller Boolean? @default(false)
+    isAdm Boolean? @default(false)
+    cellPhone String
+    cpf String
+    dateOfBirth String
+    description String
+    city String
+    state String
+    street String?
+    number Int?
+    complement String?
+    cep String?
+    reset_token String?
+
+    cars Car[]
+    comments Comment[]
+
+    @@map("users")
+  }
+
+  model Car {
+    id String @id
+    brand String
+    model String
+    year String
+    km Int
+    color String
+    status Boolean? @default(true)
+    fuel String
+    price Int
+    description String
+    imgCover String
+    bestPrice Boolean? @default(false)
+
+    user  User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String
+
+    images Image[]
+    comments Comment[]
+
+     @@map("cars")
+  }
+
+    model Image {
+    id String @id
+    imgGalery String
+
+    car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+    carId String
+
+    @@map("images")
+  }
+
+    model Comment {
+    id String @id
+    description String
+    
+    createdAt  DateTime
+    createdAtString String? 
+
+    car Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+    carId String
+
+    user  User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId String
+
+    @@map("comments")
+  } 
