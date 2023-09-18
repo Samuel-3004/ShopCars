@@ -1,6 +1,6 @@
 services:
   - name: nestjs-app
     type: web
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npx prisma migrate dev
     startCommand: npm run start:prod
 
