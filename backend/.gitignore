@@ -4,7 +4,7 @@ node_modules
 .env
 package-lock.json
 
-# Logs
+# Log
 logs
 *.log
 npm-debug.log*
