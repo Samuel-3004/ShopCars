@@ -35,7 +35,7 @@ export const Modal = styled.div<{ dark: boolean }>`
   }
 
   @media (min-width: 768px) {
-    width: 40%;
+    width: 85%;
   }
 `;
 

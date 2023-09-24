@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ModalBackgound, Modal, ModalTitle } from "./style";
+import { ModalBackgound, Modal } from "./style";
 import { ImageContext } from "../../providers/ImageProvider/ImageContext";
 
 export const ModalImageProduct = () => {
