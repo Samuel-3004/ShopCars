@@ -137,11 +137,8 @@ export const CarProvider = ({ children }: IDefaultProviderProps) => {
         },
       });
 
-      toast.success("Registered image!");
     } catch (error) {
       console.log(error);
-
-      toast.error("Error on register image");
     }
   };
 
@@ -156,10 +153,9 @@ export const CarProvider = ({ children }: IDefaultProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      toast.success("Updated image!");
+
     } catch (error) {
       console.log(error);
-      toast.error("Error on update image");
     }
   };
 
@@ -172,10 +168,8 @@ export const CarProvider = ({ children }: IDefaultProviderProps) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      toast.success("Deleted image!");
     } catch (error) {
       console.log(error);
-      toast.error("Error on delete image");
     }
   };
 

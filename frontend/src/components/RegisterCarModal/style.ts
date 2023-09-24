@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div<{ dark?: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +9,23 @@ export const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
 
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(6px);
+
+  overflow-y: auto; 
+  
+  ::-webkit-scrollbar {
+  width: 12px;               
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;        
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: ${(props) =>
+      props.dark ? "var(--primary-color)" : "var(--secondary-color)"};
+  border-radius: 20px;     
+}
 `;
 
 export const ModalContainer = styled.div<{ dark?: boolean }>`

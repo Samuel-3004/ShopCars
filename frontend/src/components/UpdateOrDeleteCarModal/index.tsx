@@ -77,7 +77,7 @@ const UpdateOrDeleteCarModal = ({
   const [imagesFields, setImagesFields] = useState<number>(allCarImages.length);
 
   const arrayToObjectImages = (): IObjectImages => {
-        // eslint-disable-next-line prefer-const
+    // eslint-disable-next-line prefer-const
     let objectImages: IObjectImages = {};
 
     for (
@@ -112,7 +112,7 @@ const UpdateOrDeleteCarModal = ({
       }
     };
     getFipePrice(updateData.brand, updateData.model);
- // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateModalRef = useRef<HTMLElement>(null);
@@ -138,7 +138,7 @@ const UpdateOrDeleteCarModal = ({
   }, [disableOutclickEvent, setUpdateModal]);
 
   const updateCar = async (): Promise<void | null> => {
-        // eslint-disable-next-line prefer-const
+    // eslint-disable-next-line prefer-const
     let updatePayload: IUpdateCars = { ...updateData };
 
     try {
@@ -149,7 +149,7 @@ const UpdateOrDeleteCarModal = ({
       setImgCoverError("Deve ser uma fonte url da imagem *");
       return null;
     }
-        // eslint-disable-next-line prefer-const
+    // eslint-disable-next-line prefer-const
     let imagesObjects = updateImages;
 
     if (Object.keys(imagesObjects).length !== imagesFields) {
@@ -341,7 +341,10 @@ const UpdateOrDeleteCarModal = ({
 
   const changePublishedStyle = (): IChangeStyles => {
     if (isPublished) {
-      return { background: "var(--black)", textDecorationLine: "underline" };
+      return {
+        background: "var(--primary-color-hover)",
+        textDecorationLine: "underline",
+      };
     } else {
       return {};
     }
@@ -349,14 +352,17 @@ const UpdateOrDeleteCarModal = ({
 
   const changeNotPublishedStyle = (): IChangeStyles => {
     if (!isPublished) {
-      return { background: "var(--black)", textDecorationLine: "underline" };
+      return {
+        background: "var(--primary-color-hover)",
+        textDecorationLine: "underline",
+      };
     } else {
       return {};
     }
   };
 
   const addImageField = (): number[] => {
-        // eslint-disable-next-line prefer-const
+    // eslint-disable-next-line prefer-const
     let result: number[] = [];
     for (let index: number = 0; index < imagesFields; index++) {
       result.push(index);
@@ -496,9 +502,9 @@ const UpdateOrDeleteCarModal = ({
             <input
               checked={isPublished}
               type="radio"
-              value="false"
+              value="true"
               id="published"
-              onClick={() => setIsPublished(false)}
+              onClick={() => setIsPublished(true)}
               onChange={handleUpdate}
               name="status"
             />
@@ -508,9 +514,9 @@ const UpdateOrDeleteCarModal = ({
             <input
               checked={!isPublished}
               type="radio"
-              value="true"
+              value="false"
               id="not-published"
-              onClick={() => setIsPublished(true)}
+              onClick={() => setIsPublished(false)}
               onChange={handleUpdate}
               name="status"
             />

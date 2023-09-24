@@ -204,8 +204,7 @@ export const AccountTypeField = styled.div<{dark?: boolean}>`
   }
 
   > label {
-    background: ${(props) =>
-        props.dark ? "var(--primary-color)" : "var(--secondary-color)"};
+    background: var(--black);
     padding: 0.8rem;
     width: 100%;
     color: var(--white);

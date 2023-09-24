@@ -14,7 +14,7 @@ const Welcome = () => {
         </MainTitleContainer>
         <p>A melhor plataforma do Brasil para negociar o seu automóvel</p>
         <BrandsContainer>
-          <LoginBtn to='/login'>Log in <FiArrowUpRight /></LoginBtn>
+          <LoginBtn to='/home'>Quero conhecer<FiArrowUpRight /></LoginBtn>
           <ListOurBrands className="avatar-container">
             <li className="avatar"><SiChevrolet /></li>
             <li className="avatar"><SiHonda /></li>

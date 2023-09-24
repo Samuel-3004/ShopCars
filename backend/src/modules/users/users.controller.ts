@@ -161,7 +161,7 @@ export class UsersController {
     description: 'Você não tem permissão para deletar o usuário.',
     type: UnauthorizedSwagger,
   })
-  @UseGuards(JwtauthGuard, UserPermissionGuard)
+  @UseGuards(JwtauthGuard)
   @ApiBearerAuth()
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);

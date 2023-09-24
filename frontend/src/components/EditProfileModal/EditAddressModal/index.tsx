@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { LegacyRef, useContext, useState } from "react";
 import {
   BackgroundModalEditAddress,
   ButtonAddressContainer,
@@ -7,6 +7,7 @@ import {
   TitleAddressContainer,
 } from "./style";
 import { UserContext } from "../../../providers/UserProvider/UserContext";
+import useOutClick from "../../../hooks/useOutclick";
 
 const EditAddressModal = () => {
   const { updateUser, userIdCars, addressEditModal, setAddressEditModal } =
@@ -36,6 +37,8 @@ const EditAddressModal = () => {
     setAddressEditModal(!addressEditModal);
   };
 
+  const modalRef = useOutClick(() => setAddressEditModal(false));
+
   let darkMode: boolean | null = JSON.parse(
     localStorage.getItem("@darkMode") || "null"
   );
@@ -43,8 +46,12 @@ const EditAddressModal = () => {
   darkMode !== true ? (darkMode = false) : (darkMode = true);
 
   return (
-    <BackgroundModalEditAddress>
-      <FormAddressContainer onSubmit={handleSubmit} dark={darkMode}>
+    <BackgroundModalEditAddress role="dialog">
+      <FormAddressContainer
+        onSubmit={handleSubmit}
+        ref={modalRef as LegacyRef<HTMLFormElement>}
+        dark={darkMode}
+      >
         <TitleAddressContainer dark={darkMode}>
           <h3>Editar endereço</h3>
           <button onClick={() => setAddressEditModal(!addressEditModal)}>

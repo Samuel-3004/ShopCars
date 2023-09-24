@@ -7,6 +7,9 @@ export const ModalBackgound = styled.div`
   position: fixed;
   top: 0;
   display: flex;
+  align-items: center;
+  z-index: 9;
+  backdrop-filter: blur(6px);
   justify-content: center;
   @media (min-width: 768px) {
     left: 0;
@@ -15,18 +18,15 @@ export const ModalBackgound = styled.div`
 
 export const Modal = styled.div<{ dark: boolean }>`
   width: 100%;
-  height: 60vh;
-  background-color: ${(props) => (props.dark ? "var(--black)" : "white")};
-  margin-top: 10%;
-  border-radius: 15px;
-  padding: 10px 20px;
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .image-car {
+    border-radius: 15px;
     width: 95%;
     height: 75%;
-    margin-top: 20px;
     object-fit: contain;
 
     @media (min-width: 768px) {

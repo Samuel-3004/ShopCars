@@ -210,7 +210,7 @@ const RegisterCarModal = ({ setModal }: IModalProps) => {
   };
 
   return (
-    <ModalWrapper role="dialog">
+    <ModalWrapper role="dialog" dark={darkMode}>
       <ModalContainer
         ref={modalRef as LegacyRef<HTMLDivElement>}
         dark={darkMode}

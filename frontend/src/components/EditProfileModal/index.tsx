@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { LegacyRef, useContext, useState } from "react";
 import { UserContext } from "../../providers/UserProvider/UserContext";
 import {
   BackgroundModalEditProfile,
@@ -7,6 +7,7 @@ import {
   FormContainer,
   TitleContainer,
 } from "./style";
+import useOutClick from "../../hooks/useOutclick";
 
 const EditProfileModal = () => {
   const {
@@ -49,9 +50,11 @@ const EditProfileModal = () => {
 
   darkMode !== true ? (darkMode = false) : (darkMode = true);
 
+  const modalRef = useOutClick(() => setProfileEditModal(false));
+
   return (
-    <BackgroundModalEditProfile>
-      <FormContainer onSubmit={handleSubmit} dark={darkMode}>
+    <BackgroundModalEditProfile role="dialog">
+      <FormContainer onSubmit={handleSubmit} dark={darkMode} ref={modalRef as LegacyRef<HTMLFormElement>}>
         <TitleContainer dark={darkMode}>
           <h3>Editar perfil</h3>
           <button onClick={() => setProfileEditModal(!profileEditModal)}>

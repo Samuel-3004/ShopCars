@@ -12,8 +12,7 @@ export const CarStatusField = styled.div<{ dark: boolean }>`
   }
 
   > label {
-    background: ${(props) =>
-      props.dark ? "var(--primary-color)" : "var(--secondary-color)"};
+    background: var(--black);
     padding: 0.8rem;
     width: 100%;
     color: var(--white);
@@ -23,10 +22,10 @@ export const CarStatusField = styled.div<{ dark: boolean }>`
     border-radius: 8px;
     cursor: pointer;
 
-    &:hover {
+    /* &:hover {
       background: var(--primary-color-hover);
       color: var(--white);
-    }
+    } */
   }
 `;
 

@@ -235,6 +235,7 @@ export const PicturesContainer = styled.ul<{ dark?: boolean }>`
     > img {
       width: 28%;
       cursor: pointer;
+      border-radius: 5px;
     }
 
     > span {
@@ -552,7 +553,7 @@ export const PicturesContainerDesktop = styled.ul<{ dark?: boolean }>`
 
     > img {
       width: 28%;
-      border-radius: 2px;
+      border-radius: 10px;
       object-fit: contain;
       cursor: pointer;
     }

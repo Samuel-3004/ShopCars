@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
-
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: center;
   align-items: center;

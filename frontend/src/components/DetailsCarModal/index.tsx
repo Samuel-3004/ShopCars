@@ -24,11 +24,10 @@ const DetailsCarModal = () => {
   darkMode !== true ? (darkMode = false) : (darkMode = true);
 
   return (
-    <ModalContainer>
+    <ModalContainer onClick={() => setCarDetailModal(!carDetailModal)}>
       <ModalDetails dark={darkMode!}>
         <TitleAndCloseBtn dark={darkMode!}>
           <h4>Detalhes do veículo</h4>
-          <span onClick={() => setCarDetailModal(!carDetailModal)}>X</span>
         </TitleAndCloseBtn>
         <PictureAndInfos>
           <figure>

@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 export const ModalContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -14,11 +15,10 @@ export const ModalContainer = styled.div`
   align-items: center;
 `;
 
-export const Modal = styled.form`
+export const Modal = styled.form<{ dark: boolean }>`
   width: 90%;
   height: 36vh;
-  background-color: #fff;
-  border-radius: 15px;
+  background-color: ${(props) => (props.dark ? "var(--black)" : "white")};
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ export const Modal = styled.form`
   }
 `;
 
-export const DivTitle = styled.div`
+export const DivTitle = styled.div<{ dark: boolean }>`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -44,7 +44,7 @@ export const DivTitle = styled.div`
   h2 {
     margin: 10px 0;
     font-size: 16px;
-    color: #212529;
+    color: ${(props) => (props.dark ? "white" : "var(--black)")};
 
     @media (min-width: 768px) {
       font-size: 20px;
@@ -96,6 +96,10 @@ export const StyledTextarea = styled(TextareaAutosize)(
   &:focus {
     border-color: var(--primary-color);
     // box-shadow: 
+  }
+
+  &::placeholder {
+    color: var(--light-gray);
   }
 
   firefox

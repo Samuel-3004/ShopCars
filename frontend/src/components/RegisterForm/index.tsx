@@ -42,8 +42,8 @@ const registerSchema = z
     cep: z.string().nonempty("CEP é obrigatório").min(9, "00000-000"),
     state: z.string().nonempty("Estado é obrigatório").min(2, "Ex: PR"),
     city: z.string().nonempty("Cidade é obrigatória"),
-    street: z.string().nonempty("Rua é obrigatória"),
-    number: z.string().nonempty("Número é obrigatório"),
+    street: z.string().optional(),
+    number: z.string().optional(),
     complement: z.string().optional(),
     seller: z.string({ invalid_type_error: "Tipo de conta é obrigatório" }),
     password: z
@@ -57,7 +57,7 @@ const registerSchema = z
     confirmPassword: z.string().nonempty("Confirmação é obrigatória"),
   })
   .refine((payload) => payload.password == payload.confirmPassword, {
-    message: "Confirmação deve ser idêntica à senha",
+    message: "Confirmação deve ser idêntica a senha",
     path: ["confirmPassword"],
   });
 
@@ -101,7 +101,7 @@ const RegisteForm = () => {
 
   const changeBuyerButtonStyle = (): IChangeStyles => {
     if (isSeller === "buyer") {
-      return { background: "var(--black)" };
+      return { background: "var(--primary-color-hover)" };
     } else {
       return {};
     }
@@ -109,7 +109,7 @@ const RegisteForm = () => {
 
   const changeSellerButtonStyle = (): IChangeStyles => {
     if (isSeller === "seller") {
-      return { background: "var(--black)" };
+      return { background: "var(--primary-color-hover)" };
     } else {
       return {};
     }
@@ -280,7 +280,7 @@ const RegisteForm = () => {
             <label>Complemento</label>
             <input
               type="text"
-              placeholder="Digitar cidade"
+              placeholder="Se houver"
               {...register("complement")}
             />
             {errors.complement?.message ? (

@@ -254,7 +254,7 @@ const ProductPage = () => {
                         <BiPencil
                           className="open_modal_comments"
                           onClick={() => getCommentById(comment)}
-                          color="white"
+                          style={{color:`${darkMode ? "white": "black"}`}}
                         />
                       )}
                     </CardComment>
